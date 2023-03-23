@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-ios;net7.0-android</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FormItemExample</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Display name -->
+    <ApplicationTitle>FormItemExample</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.formcellexample</ApplicationId>
+    <ApplicationIdGuid>6601a32f-a26d-40b7-b410-8b9ae3972a97</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*.svg" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <MauiImage Update="Resources\Images\check_24px.svg" TintColor="White" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\check_24px.svg" />
+    <None Remove="Resources\Images\jennievalintine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiImage Include="Resources\Images\jennievalintine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-beta" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="Views\EditBioPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+  <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).pdb')" Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' and Exists('%(RootDir)%(Directory)%(Filename).pdb')" />
+    </ItemGroup>
+  </Target>
+</Project>
