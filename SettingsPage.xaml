@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FormItemExample"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             x:Class="FormItemExample.SettingsPage">
+    <ContentPage.BindingContext>
+        <local:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Switch">
+            <Setter Property="HeightRequest"
+                    Value="24" />
+        </Style>
+        <Style TargetType="Line">
+            <Setter Property="BackgroundColor"
+                    Value="#2D000000" />
+            <Setter Property="HeightRequest"
+                    Value="1" />
+            <Setter Property="Margin"
+                    Value="0,10,0,20" />
+        </Style>
+        <Style TargetType="Label"
+               x:Key="LabelStyle">
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="Margin"
+                    Value="10,0,0,20" />
+        </Style>
+        <Style TargetType="dxe:FormItem">
+            <Setter Property="ShowSeparator"
+                    Value="false" />
+            <Setter Property="ImageWidth"
+                    Value="36" />
+            <Setter Property="ImageMargin"
+                    Value="0,0,10,0" />
+            <Setter Property="ImageHeight"
+                    Value="36" />
+            <Setter Property="AllowTap"
+                    Value="false" />
+            <Setter Property="Margin"
+                    Value="0,0,0,10" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <dxe:FormItem Text="Jack Robbinson"
+                          ImageVerticalOptions="Center"
+                          TextFontSize="20"
+                          Detail="rjack99@gmail.com">
+                <dxe:FormItem.ImageTemplate>
+                    <DataTemplate>
+                        <Image Aspect="AspectFit"
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               Source="profile"
+                               Margin="0,0,10,0">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="30"
+                                                 RadiusY="30"
+                                                 Center="30,30" />
+                            </Image.Clip>
+                        </Image>
+                    </DataTemplate>
+                </dxe:FormItem.ImageTemplate>
+            </dxe:FormItem>
+            <Line />
+            <Label Text="Language"
+                   Style="{StaticResource LabelStyle}" />
+            <dxe:FormItem Text="{Binding Language}"
+                          ShowArrow="true"
+                          ImageSource="globe"
+                          AllowTap="True"
+                          TapCommand="{Binding SelectLanguageCommand}" />
+            <Line />
+            <Label Text="Notifications with chat"
+                   Style="{StaticResource LabelStyle}" />
+            <dxe:FormItem Text="Private Chat"
+                          ImageSource="priv">
+                <dxe:FormItem.BadgeTemplate>
+                    <DataTemplate>
+                        <Switch IsToggled="{Binding IsPrivateChatEnabled}" />
+                    </DataTemplate>
+                </dxe:FormItem.BadgeTemplate>
+            </dxe:FormItem>
+            <dxe:FormItem Text="Group Chat"
+                          ImageSource="group">
+                <dxe:FormItem.BadgeTemplate>
+                    <DataTemplate>
+                        <Switch IsToggled="{Binding IsGroupChatEnabled}" />
+                    </DataTemplate>
+                </dxe:FormItem.BadgeTemplate>
+            </dxe:FormItem>
+            <Line />
+            <Label Text="Calls"
+                   Style="{StaticResource LabelStyle}" />
+            <dxe:FormItem Text="Sounds"
+                          ImageSource="sound">
+                <dxe:FormItem.BadgeTemplate>
+                    <DataTemplate>
+                        <Switch IsToggled="{Binding IsSoundEnabled}}" />
+                    </DataTemplate>
+                </dxe:FormItem.BadgeTemplate>
+            </dxe:FormItem>
+            <dxe:FormItem Text="Vibrate"
+                          ImageSource="vibrate">
+                <dxe:FormItem.BadgeTemplate>
+                    <DataTemplate>
+                        <Switch IsToggled="{Binding IsVibrationEnabled}}" />
+                    </DataTemplate>
+                </dxe:FormItem.BadgeTemplate>
+            </dxe:FormItem>
+            <dxe:FormItem Text="Black List"
+                          ImageSource="blacklist"
+                          ShowArrow="True"
+                          AllowTap="True"
+                          TapCommand="{Binding SelectBlackListCommand}" />
+            <dxe:FormItem Text="Black List"
+                          ImageSource="blacklist"
+                          ShowArrow="True"
+                          AllowTap="False">
+                <dxe:CheckEdit />
+            </dxe:FormItem>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
