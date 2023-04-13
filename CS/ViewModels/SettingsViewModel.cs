@@ -57,6 +57,7 @@ public class SettingsViewModel : INotifyPropertyChanged {
             OnPropertyChanged();
         }
     }
+    public List<string> Languages { get; } = new() { "English", "German", "French", "Spanish", "Italian", "Russian", "Chinese", "Japanese" };
     public ICommand SelectLanguageCommand => new Command<string>(SelectLanguage);
     public ICommand SelectBlackListCommand => new Command<string>(SelectBlackList);
 
