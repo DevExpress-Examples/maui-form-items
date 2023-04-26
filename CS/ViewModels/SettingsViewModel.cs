@@ -6,7 +6,7 @@ namespace FormItemExample;
 
 public class SettingsViewModel : INotifyPropertyChanged {
     string language;
-    List<string> blackList = new();
+    List<string> blacklist = new();
     bool isPrivateChatEnabled = true;
     bool isGroupChatEnabled;
     bool isSoundEnabled = true;
@@ -50,16 +50,16 @@ public class SettingsViewModel : INotifyPropertyChanged {
             OnPropertyChanged();
         }
     }
-    public List<string> BlackList {
-        get => this.blackList;
+    public List<string> Blacklist {
+        get => this.blacklist;
         set {
-            this.blackList = value;
+            this.blacklist = value;
             OnPropertyChanged();
         }
     }
     public List<string> Languages { get; } = new() { "English", "German", "French", "Spanish", "Italian", "Russian", "Chinese", "Japanese" };
     public ICommand SelectLanguageCommand => new Command<string>(SelectLanguage);
-    public ICommand SelectBlackListCommand => new Command<string>(SelectBlackList);
+    public ICommand SelectBlacklistCommand => new Command<string>(SelectBlacklist);
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -72,10 +72,10 @@ public class SettingsViewModel : INotifyPropertyChanged {
         };
         await Shell.Current.GoToAsync("SelectLanguagePage", parameters);
     }
-    async void SelectBlackList(string obj) {
+    async void SelectBlacklist(string obj) {
         Dictionary<string, object> parameters = new() {
             { "Settings", this }
         };
-        await Shell.Current.GoToAsync("BlackListPage", parameters);
+        await Shell.Current.GoToAsync("BlacklistPage", parameters);
     }
 }

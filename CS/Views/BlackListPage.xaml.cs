@@ -3,10 +3,10 @@
 namespace FormItemExample;
 
 [QueryProperty(nameof(Settings), "Settings")]
-public partial class BlackListPage : ContentPage {
+public partial class BlacklistPage : ContentPage {
     SettingsViewModel settings;
 
-    public BlackListPage() {
+    public BlacklistPage() {
         InitializeComponent();
         BindingContext = this;
     }
@@ -16,11 +16,11 @@ public partial class BlackListPage : ContentPage {
         set {
             this.settings = value;
             OnPropertyChanged();
-            OnPropertyChanged(nameof(BlackList));
+            OnPropertyChanged(nameof(Blacklist));
         }
     }
-    public List<string> BlackList {
-        get => Settings?.BlackList;
+    public List<string> Blacklist {
+        get => Settings?.Blacklist;
     }
     public List<string> Contacts { get; } = new() { "Bruce Cambell", "Andrea Deville", "Anita Ryan", "George Bunkelman", "Anita Cardle", "Andrew Carter", "Almas Basinger", "Carolyn Baker", "Anthony Rounds" };
 

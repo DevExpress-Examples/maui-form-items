@@ -5,6 +5,6 @@ public partial class AppShell : Shell
 	public AppShell()
 	{
 		InitializeComponent();
-		Routing.RegisterRoute("SettingsPage/BlackListPage", typeof(BlackListPage));
+		Routing.RegisterRoute("SettingsPage/BlacklistPage", typeof(BlacklistPage));
 	}
 }

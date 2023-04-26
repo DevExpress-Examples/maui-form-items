@@ -4,9 +4,9 @@
              xmlns:local="clr-namespace:FormItemExample"
              xmlns:dxcv="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
-             Title="Black List"
-             x:Class="FormItemExample.BlackListPage">
+             Title="Contact Blacklist"
+             x:Class="FormItemExample.BlacklistPage">
     <VerticalStackLayout>
-        <dxcv:DXCollectionView ItemsSource="{Binding Contacts}" SelectedItems="{Binding BlackList}" SelectionMode="Multiple" />
+        <dxcv:DXCollectionView ItemsSource="{Binding Contacts}" SelectedItems="{Binding Blacklist}" SelectionMode="Multiple" />
     </VerticalStackLayout>
 </ContentPage>
