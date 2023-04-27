@@ -75,7 +75,7 @@
                               TextFontFamily="Roboto"
                               ImageVerticalOptions="Center"
                               TextFontSize="18"
-                              Detail="rjack99@gmail.com"
+                              Detail="rjack99@dxmail.com"
                               DetailFontFamily="Roboto"
                               DetailFontSize="14">
                     <dxe:FormItem.ImageTemplate>
