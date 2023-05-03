@@ -25,19 +25,23 @@
     <!-- Images -->
     <MauiImage Include="Resources\Images\*.svg" />
     <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <MauiImage Update="Resources\Images\check_24px.svg" TintColor="White" />
     <!-- Custom Fonts -->
     <MauiFont Include="Resources\Fonts\*" />
     <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-pre*" />
+    <None Remove="Resources\Images\check_24px.svg" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\BlacklistPage.xaml.cs">
-      <DependentUpon>BlacklistPage.xaml</DependentUpon>
-    </Compile>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-pre-23123-12941" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="Views\EditBioPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
   </ItemGroup>
   <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">
     <ItemGroup>
