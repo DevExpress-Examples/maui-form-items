@@ -10,9 +10,10 @@
         <ToolbarItem Clicked="OnAccept" IconImageSource="check_24px" />
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
-        <dxe:MultilineEdit
+        <dxe:MultilineEdit Loaded="bioEditor_Loaded" BackgroundColor="Transparent"
             x:Name="bioEditor"
             Margin="5"
+            BoxMode="Filled"
             HelpText="{x:Static helpers:BioHelper.detailText}"
             HelpTextColor="Gray"
             MaxCharacterCount="100" />
