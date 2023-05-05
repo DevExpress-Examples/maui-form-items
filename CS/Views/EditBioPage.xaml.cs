@@ -1,4 +1,3 @@
-using Android.App;
 using DevExpress.Maui.Editors;
 
 namespace FormItemExample.Views;

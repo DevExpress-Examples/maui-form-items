@@ -27,7 +27,7 @@
             <Setter Property="Margin" Value="0,0,0,0" />
         </Style>
         <Style TargetType="dxe:FormPickerItem" BasedOn="{StaticResource formItemBase}">
-            <Setter Property="DropDownBackgroundColor" Value="{AppThemeBinding Light=White, Dark=Gray950}" />
+            <Setter Property="DropDownBackgroundColor" Value="{AppThemeBinding Light=White, Dark=Black}" />
         </Style>
         <Style TargetType="dxe:FormGroupItem">
             <Setter Property="HeaderFontFamily" Value="Roboto-Bold" />
@@ -101,7 +101,8 @@
                 <dxe:FormPickerItem
                     ImageSource="vibrate"
                     ItemsSource="{Binding VibrationModes}"
-                    PickerShowMode="Popup"
+                    PickerShowMode="Popup" 
+                    DropDownBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray950}}"
                     SelectedItem="{Binding VibrationMode}"
                     ShowSearchPanel="False"
                     Text="Vibrate" />
