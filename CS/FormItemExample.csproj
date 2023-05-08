@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-pre-23123-12941" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-pre-*" />
   </ItemGroup>
   <ItemGroup>
     <MauiXaml Update="Views\EditBioPage.xaml">

@@ -18,7 +18,6 @@
             <Setter Property="ImageMargin" Value="0,0,10,0" />
             <Setter Property="ImageHeight" Value="36" />
             <Setter Property="Margin" Value="0,0,0,0" />
-            <Setter Property="Padding" Value="0" />
         </Style>
         <Style TargetType="dxe:FormItem" BasedOn="{StaticResource formItemBase}">
             <Setter Property="Margin" Value="0,0,0,0" />
@@ -27,14 +26,14 @@
             <Setter Property="Margin" Value="0,0,0,0" />
         </Style>
         <Style TargetType="dxe:FormPickerItem" BasedOn="{StaticResource formItemBase}">
-            <Setter Property="DropDownBackgroundColor" Value="{AppThemeBinding Light=White, Dark=Black}" />
+            <Setter Property="PickerBackgroundColor" Value="{AppThemeBinding Light=White, Dark=Black}" />
         </Style>
         <Style TargetType="dxe:FormGroupItem">
             <Setter Property="HeaderFontFamily" Value="Roboto-Bold" />
-            <Setter Property="HeaderMargin" Value="0,0,0,15" />
-            <Setter Property="ItemSpacing" Value="15" />
-            <Setter Property="Padding" Value="10, 25" />
+            <Setter Property="HeaderMargin" Value="15,0,0,5" />
+            <Setter Property="Padding" Value="0,25,0,15" />
             <Setter Property="HeaderFontSize" Value="15" />
+            <Setter Property="ItemSpacing" Value="0" />
         </Style>
     </ContentPage.Resources>
     <ScrollView>
@@ -102,7 +101,7 @@
                     ImageSource="vibrate"
                     ItemsSource="{Binding VibrationModes}"
                     PickerShowMode="Popup" 
-                    DropDownBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray950}}"
+                    PickerBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray950}}"
                     SelectedItem="{Binding VibrationMode}"
                     ShowSearchPanel="False"
                     Text="Vibrate" />
