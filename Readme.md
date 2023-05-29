@@ -26,7 +26,7 @@ Also, this example uses the `FormGroupItem` component to combine form items into
 
 ## Documentation
 
-- [Form Items](https://docs.devexpress.com/MAUI/404418/form-items/form-items)
+- [Form Items](https://docs.devexpress.com/MAUI/404418/form-items/form-items?v=23.1)
 
 ## More Examples
 
