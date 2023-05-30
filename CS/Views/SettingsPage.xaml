@@ -116,13 +116,17 @@
                     Text="Vibrate" />
                 <dxe:FormListPickerItem
                     ImageSource="blacklist"
+                    ImageVerticalOptions="Start"
+                    ArrowVerticalOptions="Start"
+                    ImageMargin="0,-6,10,0"
                     InlineContent="{x:Null}"
-                    Content="{x:Null}"
                     IsMultipleSelectionEnabled="True"
                     ItemsSource="{Binding Contacts}"
                     SelectedItems="{Binding Blacklist}"
                     PickerTitle="Blacklist"
-                    Text="Blacklist" />
+                    Text="Blacklist"
+                    Content="{Binding Blacklist, Converter={helpers:BlacklistCollectionConverter}, Mode=TwoWay}" >
+                </dxe:FormListPickerItem>
             </dxe:FormGroupItem>
         </VerticalStackLayout>
     </ScrollView>

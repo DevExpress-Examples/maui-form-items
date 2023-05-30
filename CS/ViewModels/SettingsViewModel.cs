@@ -1,14 +1,13 @@
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using FormItemExample.Views;
 
 namespace FormItemExample;
 
 public class SettingsViewModel : INotifyPropertyChanged {
     string language;
-    List<string> blacklist = new();
     bool isPrivateChatEnabled = true;
     bool isGroupChatEnabled;
     bool isSoundEnabled = true;
@@ -18,6 +17,7 @@ public class SettingsViewModel : INotifyPropertyChanged {
     public SettingsViewModel() {
         Language = "English";
         VibrationMode = "Default";
+        Blacklist.CollectionChanged += OnBlacklistCollectionChanged;
     }
     public string Language {
         get => this.language;
@@ -61,12 +61,9 @@ public class SettingsViewModel : INotifyPropertyChanged {
             OnPropertyChanged();
         }
     }
-    public List<string> Blacklist {
-        get => this.blacklist;
-        set {
-            this.blacklist = value;
-            OnPropertyChanged();
-        }
+    public ObservableCollection<string> Blacklist { get; } = new();
+    void OnBlacklistCollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+        OnPropertyChanged(nameof(Blacklist));
     }
     public List<string> VibrationModes { get; } = new() {
         "Disabled", "Default", "Short", "Long", "Only in Silent Mode"
