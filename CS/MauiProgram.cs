@@ -1,4 +1,5 @@
-﻿using DevExpress.Maui;
+﻿using CommunityToolkit.Maui;
+using DevExpress.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace FormItemExample;
@@ -11,6 +12,7 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.UseDevExpress()
+            .UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -19,10 +21,6 @@ public static class MauiProgram
 				fonts.AddFont("roboto-bold.ttf", "Roboto-Bold");
 				fonts.AddFont("roboto-medium.ttf", "Roboto-Medium");
 			});
-
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
 
 		return builder.Build();
 	}

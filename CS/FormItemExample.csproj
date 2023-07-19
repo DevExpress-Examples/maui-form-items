@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net7.0-ios;net7.0-android</TargetFrameworks>
+    <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>FormItemExample</RootNamespace>
     <UseMaui>true</UseMaui>
@@ -45,17 +45,13 @@
     <MauiImage Include="Resources\Images\jennievalintine.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.*" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Maui.Editors" Version="23.1.2-beta" />
   </ItemGroup>
   <ItemGroup>
     <MauiXaml Update="Views\EditBioPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>
-  <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">
-    <ItemGroup>
-      <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).pdb')" Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' and Exists('%(RootDir)%(Directory)%(Filename).pdb')" />
-    </ItemGroup>
-  </Target>
 </Project>
