@@ -6,19 +6,63 @@
 
 # DevExpress Form Items for .NET MAUI
 
-This example shows how to use different form items to build a settings page.
+This example shows how to use various form items to build a settings page.
 
 ![DevExpress Form Items for .NET MAUI - Demo app preview](Images/form-items-preview.png)
 
-To replicate the page displayed in the image above, use the following form items:
+## Implementation Details
 
-* `FormItem` - A basic form item that can contain an image, title, description, arrow, and additional content. You can invoke an action when a user taps the item and use the FormItem to display user information.
+* This project implements the following form items:
 
-* `FormPickerItem` - Extends FormItem capabilities by adding an ability to select options from a predefined list.
+    | Item | Description |
+    |-|-|
+    | [FormItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItem) | Displays custom content (an image or a text field). You can also use this class to display a menu item that takes you to another page.  |
+    | [FormSwitchItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormSwitchItem)| Allows you to edit a Boolean value. |
+    | [FormListPickerItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem) | Displays a list that allows single-item or multiple-item selection. |
+    | [FormGroupItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem) | Allows you to group items. |
 
-* `FormSwitchItem` - Use this form item to allow users to switch the Boolean property value.
+* The [FormItem.ImageTemplate](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageTemplate) property embeds custom content:
 
-Also, this example uses the `FormGroupItem` component to combine form items into groups.
+    ```xml
+    <dxe:FormItem.ImageTemplate>
+        <DataTemplate>
+            <Image Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
+                <Image.Clip>
+                    <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                </Image.Clip>
+            </Image>
+        </DataTemplate>
+    </dxe:FormItem.ImageTemplate>
+    ```
+* The [FormListPickerItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem) object allows users to select items from a list. The list can appear in a [Popup control](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.DXPopup), a [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.BottomSheet), or a page. This example uses this item type to display the following pickers:
+
+    | Field | Notes | Customization Properties |
+    |-|-|-|
+    | Language | A language picker. Appears on a separate page. | - |
+    | Vibrate | A single-selection picker. Appears in a Popup control. | [PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormPickerItemBase.PickerShowMode) = Popup|
+    | Blacklist | A multiple-selection picker with an integrated search bar. Appears on a separate page. | [IsMultipleSelectionEnabled](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem.IsMultipleSelectionEnabled) = true; [ShowSearchPanel](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem.ShowSearchPanel) = true |
+
+* One [FormItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItem) opens a page with the multiline text editor bound to the *bio* field. The code saves changes when a user navigates back to the main page.
+* The "Private Chat" item binds its [FormSwitchItem.IsToggled](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormSwitchItem.IsToggled) property to a Boolean field.
+  
+  ```xml
+  <dxe:FormSwitchItem ImageSource="priv" IsToggled="{Binding IsPrivateChatEnabled}" Text="Private Chat" />
+  ```
+
+* The [FormItem.ImageSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageSource) property specifies an icon. 
+
+    ```xml
+    <dxe:FormItem ImageSource="email" Text="Email" />
+    ```
+
+    The [ImageColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageSource) property customizes the image color (in this example, it uses theme colors):
+
+    ```xml
+    <Setter Property="ImageColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}" />
+    ```
+
+* The [FormGroupItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem) object visually separates form items into groups. The [FormItemGroup.Header](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem.Header) property specifies group header content.
+* Form items support a variety of customization options that allow you to change colors, fonts, paddings, margins, and many other style attributes.
 
 ## Files to Review
 
