@@ -48,7 +48,7 @@
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
-    <PackageReference Include="DevExpress.Maui.Editors" Version="23.2.2-beta" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.2.*" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
