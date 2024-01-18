@@ -6,7 +6,7 @@
 
 # DevExpress Form Items for .NET MAUI
 
-This example shows how to use various form items to build a settings page.
+This example uses various form items to create an intuitive/easy-to-use mobile settings page.
 
 ![DevExpress Form Items for .NET MAUI - Demo app preview](Images/form-items-preview.png)
 
@@ -18,7 +18,7 @@ This example shows how to use various form items to build a settings page.
     |-|-|
     | [FormItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItem) | Displays custom content (an image or a text field). You can also use this class to display a menu item that takes you to another page.  |
     | [FormSwitchItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormSwitchItem)| Allows you to edit a Boolean value. |
-    | [FormListPickerItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem) | Displays a list that allows single-item or multiple-item selection. |
+    | [FormListPickerItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem) | Displays a list with the option to select a single or multiple items. |
     | [FormGroupItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem) | Allows you to group items. |
 
 * The [FormItem.ImageTemplate](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageTemplate) property embeds custom content:
@@ -42,7 +42,7 @@ This example shows how to use various form items to build a settings page.
     | Vibrate | A single-selection picker. Appears in a Popup control. | [PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormPickerItemBase.PickerShowMode) = Popup|
     | Blacklist | A multiple-selection picker with an integrated search bar. Appears on a separate page. | [IsMultipleSelectionEnabled](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem.IsMultipleSelectionEnabled) = true; [ShowSearchPanel](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormListPickerItem.ShowSearchPanel) = true |
 
-* One [FormItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItem) opens a page with the multiline text editor bound to the *bio* field. The code saves changes when a user navigates back to the main page.
+* One [FormItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItem) opens a page with a multiline text editor bound to the *bio* field. The code saves changes when a user navigates back to the main page.
 * The "Private Chat" item binds its [FormSwitchItem.IsToggled](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormSwitchItem.IsToggled) property to a Boolean field.
   
   ```xml
@@ -55,14 +55,14 @@ This example shows how to use various form items to build a settings page.
     <dxe:FormItem ImageSource="email" Text="Email" />
     ```
 
-    The [ImageColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageSource) property customizes the image color (in this example, it uses theme colors):
+    The [ImageColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormItemBase.ImageColor) property customizes image color (uses theme colors for this example):
 
     ```xml
     <Setter Property="ImageColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}" />
     ```
 
 * The [FormGroupItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem) object visually separates form items into groups. The [FormItemGroup.Header](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.FormGroupItem.Header) property specifies group header content.
-* Form items support a variety of customization options that allow you to change colors, fonts, paddings, margins, and many other style attributes.
+* Form items support a variety of customization options, including the ability to modify colors, fonts, paddings, margins, and other style attributes.
 
 ## Files to Review
 
