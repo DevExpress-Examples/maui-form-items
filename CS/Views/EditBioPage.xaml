@@ -3,14 +3,15 @@
     x:Class="FormItemExample.Views.EditBioPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
     xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
     xmlns:helpers="clr-namespace:FormItemExample.Helpers"
     Title="Bio">
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="OnAccept" IconImageSource="check_24px" />
     </ContentPage.ToolbarItems>
-    <VerticalStackLayout>
+    <dx:DXStackLayout Orientation="Vertical">
         <dxe:MultilineEdit Loaded="bioEditor_Loaded" BackgroundColor="Transparent" x:Name="bioEditor" Margin="5" BoxMode="Filled"
             HelpText="{x:Static helpers:BioHelper.detailText}" HelpTextColor="Gray" MaxCharacterCount="100" />
-    </VerticalStackLayout>
+    </dx:DXStackLayout>
 </ContentPage>

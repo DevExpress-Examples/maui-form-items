@@ -26,11 +26,11 @@ This example uses various form items to create an intuitive/easy-to-use mobile s
     ```xml
     <dxe:FormItem.ImageTemplate>
         <DataTemplate>
-            <Image Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
-                <Image.Clip>
+            <dxco:DXImage Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
+                <dxco:DXImage.Clip>
                     <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
-                </Image.Clip>
-            </Image>
+                </dxco:DXImage.Clip>
+            </dxco:DXImage>
         </DataTemplate>
     </dxe:FormItem.ImageTemplate>
     ```
@@ -76,4 +76,3 @@ This example uses various form items to create an intuitive/easy-to-use mobile s
 
 - [DevExpress Editors for .NET MAUI](https://github.com/DevExpress-Examples/maui-editors-get-started)
 - [DevExpress .NET MAUI Editors - Create Login and Sign-Up Forms](https://github.com/DevExpress-Examples/maui-editors-access-form)
-
