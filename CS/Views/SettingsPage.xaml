@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
     x:Class="FormItemExample.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
-    xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
-    xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+    xmlns:dx="http://schemas.devexpress.com/maui"
     xmlns:helpers="clr-namespace:FormItemExample.Helpers"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:local="clr-namespace:FormItemExample">
@@ -16,7 +13,7 @@
         <local:SettingsViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
-        <Style TargetType="dxe:FormItemBase" ApplyToDerivedTypes="True" x:Key="baseStyle">
+        <Style TargetType="dx:FormItemBase" ApplyToDerivedTypes="True" x:Key="baseStyle">
             <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
             <Setter Property="ImageColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}" />
             <Setter Property="Padding" Value="0,8" />
@@ -26,17 +23,17 @@
             <Setter Property="ImageHeight" Value="36" />
             <Setter Property="Margin" Value="-1,0,-1,0" />           
         </Style>
-        <Style TargetType="dxe:FormItem" BasedOn="{StaticResource baseStyle}">
+        <Style TargetType="dx:FormItem" BasedOn="{StaticResource baseStyle}">
             <Setter Property="Margin" Value="0,0,0,0" />
         </Style>
-        <Style TargetType="dxe:FormSwitchItem" BasedOn="{StaticResource baseStyle}">
+        <Style TargetType="dx:FormSwitchItem" BasedOn="{StaticResource baseStyle}">
         </Style>
-        <Style TargetType="dxe:FormListPickerItem" BasedOn="{StaticResource baseStyle}">
+        <Style TargetType="dx:FormListPickerItem" BasedOn="{StaticResource baseStyle}">
             <Setter Property="PickerTitleColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray200}}"/>
             <Setter Property="PickerBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"/>
             <Setter Property="ArrowColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
         </Style>
-        <Style TargetType="dxe:FormGroupItem">
+        <Style TargetType="dx:FormGroupItem">
             <Setter Property="HeaderColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
             <Setter Property="HeaderFontAttributes" Value="Bold" />
             <Setter Property="HeaderMargin" Value="0,0,0,5" />
@@ -47,41 +44,41 @@
     </ContentPage.Resources>
     <ScrollView>
         <dx:DXStackLayout Orientation="Vertical" Padding="20,0" ItemSpacing="10">
-            <dxe:FormGroupItem>
-                <dxe:FormItem  Detail="support@devexpress.com" DetailFontFamily="Roboto" DetailFontSize="14" ImageVerticalOptions="Center"
+            <dx:FormGroupItem>
+                <dx:FormItem  Detail="support@devexpress.com" DetailFontFamily="Roboto" DetailFontSize="14" ImageVerticalOptions="Center"
                                Padding="0,10" Text="Jennie Valintine" TextFontFamily="Roboto" TextFontSize="18">
-                    <dxe:FormItem.ImageTemplate>
+                    <dx:FormItem.ImageTemplate>
                         <DataTemplate>
-                            <dxco:DXImage Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
-                                <dxco:DXImage.Clip>
+                            <dx:DXImage Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
+                                <dx:DXImage.Clip>
                                     <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
-                                </dxco:DXImage.Clip>
-                            </dxco:DXImage>
+                                </dx:DXImage.Clip>
+                            </dx:DXImage>
                         </DataTemplate>
-                    </dxe:FormItem.ImageTemplate>
-                </dxe:FormItem>
-                <dxe:FormItem AllowTap="True" Detail="{Binding Bio, Converter={helpers:BioDetailsConverter}, Mode=OneWay}" DetailColor="Gray"
+                    </dx:FormItem.ImageTemplate>
+                </dx:FormItem>
+                <dx:FormItem AllowTap="True" Detail="{Binding Bio, Converter={helpers:BioDetailsConverter}, Mode=OneWay}" DetailColor="Gray"
                     TapCommand="{Binding EditBioCommand}" Text="{Binding Bio, Converter={helpers:BioTextConverter}, Mode=OneWay}" />
-            </dxe:FormGroupItem>
-            <dxe:FormGroupItem Header="Language">
-                <dxe:FormListPickerItem ImageSource="globe" InlineContent="{x:Null}" ItemsSource="{Binding Languages}" PickerTitle="Select Language"
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Language">
+                <dx:FormListPickerItem ImageSource="globe" InlineContent="{x:Null}" ItemsSource="{Binding Languages}" PickerTitle="Select Language"
                     SelectedItem="{Binding Language, Mode=TwoWay}" Text="{Binding Language}" />
-            </dxe:FormGroupItem>
-            <dxe:FormGroupItem Header="Chat Notifications">
-                <dxe:FormSwitchItem ImageSource="priv" IsToggled="{Binding IsPrivateChatEnabled}" Text="Private Chat"/>
-                <dxe:FormSwitchItem ImageSource="group" IsToggled="{Binding IsGroupChatEnabled}" Text="Group Chat" />
-            </dxe:FormGroupItem>
-            <dxe:FormGroupItem Header="Calls" ShowSeparator="false">
-                <dxe:FormSwitchItem ImageSource="sound" IsToggled="{Binding IsSoundEnabled}" Text="Sounds"/>
-                <dxe:FormListPickerItem ImageSource="vibrate" ItemsSource="{Binding VibrationModes}" PickerShowMode="Popup" 
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Chat Notifications">
+                <dx:FormSwitchItem ImageSource="priv" IsToggled="{Binding IsPrivateChatEnabled}" Text="Private Chat"/>
+                <dx:FormSwitchItem ImageSource="group" IsToggled="{Binding IsGroupChatEnabled}" Text="Group Chat" />
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Calls" ShowSeparator="false">
+                <dx:FormSwitchItem ImageSource="sound" IsToggled="{Binding IsSoundEnabled}" Text="Sounds"/>
+                <dx:FormListPickerItem ImageSource="vibrate" ItemsSource="{Binding VibrationModes}" PickerShowMode="Popup" 
                     PickerBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray950}}" SelectedItem="{Binding VibrationMode}"
                     ShowSearchPanel="False" Text="Vibrate" />
-                <dxe:FormListPickerItem ImageSource="blacklist" ImageVerticalOptions="Start" ArrowVerticalOptions="Start" ImageMargin="0,-6,10,0"
+                <dx:FormListPickerItem ImageSource="blacklist" ImageVerticalOptions="Start" ArrowVerticalOptions="Start" ImageMargin="0,-6,10,0"
                     IsMultipleSelectionEnabled="True" ItemsSource="{Binding Contacts}" SelectedItems="{Binding Blacklist}" PickerTitle="Blacklist"
                     Text="Blacklist" PickerPageButtonPosition="Title"
                     Content="{Binding Blacklist, Converter={helpers:BlacklistCollectionConverter}, Mode=TwoWay}">
-                </dxe:FormListPickerItem>
-            </dxe:FormGroupItem>
+                </dx:FormListPickerItem>
+            </dx:FormGroupItem>
         </dx:DXStackLayout>
     </ScrollView>
 </ContentPage>

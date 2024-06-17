@@ -12,6 +12,9 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.UseDevExpress()
+			.UseDevExpressCollectionView()
+			.UseDevExpressControls()
+			.UseDevExpressEditors()
             .UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
