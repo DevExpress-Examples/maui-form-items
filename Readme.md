@@ -71,7 +71,7 @@ This example uses various form items to create an intuitive/easy-to-use mobile s
 
 ## Documentation
 
-- [Form Items](https://docs.devexpress.com/MAUI/404418/form-items/form-items?v=23.1)
+- [Form Items](https://docs.devexpress.com/MAUI/404418/form-items/form-items)
 
 ## More Examples
 
